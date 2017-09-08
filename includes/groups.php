@@ -1,6 +1,5 @@
 <?php
 
-// TODO shouldn't this be a filter? change/test
 /**
  * filter group options before save to enforce visibility depending on user status
  *
@@ -21,7 +20,7 @@ function hcpc_filter_groups_group_status_before_save( string $status ) {
 
 	return $status;
 }
-add_action( 'groups_group_status_before_save', 'hcpc_filter_groups_group_status_before_save' );
+add_filter( 'groups_group_status_before_save', 'hcpc_filter_groups_group_status_before_save' );
 
 /**
  * disable relevant visibility radio buttons and add explanatory notice to label using inline js
