@@ -4,6 +4,6 @@ jQuery( function() {
     $( this )
       .attr( 'disabled', true )
       .parents( 'label' )
-      .append( ' <small><em>This option is only available to vetted users.</em></small>' );
+      .append( '<br><br><small><em>This option is only available to vetted users.</em></small>' );
   } );
 } );
