@@ -15,5 +15,6 @@ function hcpc_is_user_vetted() {
 	return $humanities_commons->hcommons_vet_user();
 }
 
+require_once( trailingslashit( __DIR__ ) . 'includes/docs.php' );
 require_once( trailingslashit( __DIR__ ) . 'includes/groups.php' );
 require_once( trailingslashit( __DIR__ ) . 'includes/blogs.php' );
