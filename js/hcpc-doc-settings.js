@@ -3,9 +3,7 @@
 // overwrites the content of '#toggle-table-settings tbody' after the page has loaded
 jQuery( function() {
     var observer = new MutationObserver( function() {
-      console.log('obs');
       if ( ! $( '#settings-read' ).prop( 'disabled' ) ) {
-        console.log('found');
         $( '#settings-read' ).attr( 'disabled', true );
         $( 'label[for="settings-read"]' ).append( '<br><br><small><em>Only vetted users can create public docs.</em></small>' );
         observer.disconnect();
