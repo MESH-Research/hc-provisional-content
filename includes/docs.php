@@ -10,6 +10,10 @@ function hcpc_preset_doc_settings( $doc_settings ) {
 
 	if ( ! $vetted_user ) {
 		$doc_settings['read'] = 'creator';
+		$doc_settings['edit'] = 'creator';
+		$doc_settings['read_comments'] = 'creator';
+		$doc_settings['post_comments'] = 'creator';
+		$doc_settings['view_history'] = 'creator';
 	}
 
 	return $doc_settings;
