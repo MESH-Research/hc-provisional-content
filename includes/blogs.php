@@ -26,8 +26,7 @@ add_action( 'bp_blogs_blog_before_save', 'hcpc_filter_bp_blogs_blog_before_save'
  * this only works if hooked to actions before wp_head
  */
 function hcpc_preset_blog_settings() {
-	wp_add_inline_script( 'jquery-core', file_get_contents( plugin_dir_path( __DIR__ ) . 'js/hcpc-blog-settings.js' ) );
+	echo '<script>' . file_get_contents( plugin_dir_path( __DIR__ ) . 'js/hcpc-blog-settings.js' ) . '</script>';
 }
-add_action( 'bp_blogs_screen_create_a_blog', 'hcpc_preset_blog_settings' );
-// TODO find/target hook to handle changing settings after blog exists
-//add_action( 'groups_screen_group_admin_settings', 'hcpc_preset_blog_settings' );
+add_action( 'bp_after_create_blog_content', 'hcpc_preset_blog_settings' );
+add_action( 'admin_head-options-reading.php', 'hcpc_preset_blog_settings' );
