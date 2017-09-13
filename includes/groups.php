@@ -28,8 +28,8 @@ add_filter( 'groups_group_status_before_save', 'hcpc_filter_groups_group_status_
  */
 function hcpc_preset_group_settings() {
 	//wp_add_inline_script( 'jquery-core', file_get_contents( plugin_dir_path( __DIR__ ) . 'js/hcpc-group-settings.js' ) );
-	// TODO bp_before_create_group_page happens after wp_head, so have to echo rather than enqueue. 
+	// TODO bp_before_create_group_page happens after wp_head, so have to echo rather than enqueue.
 	echo '<script>' . file_get_contents( plugin_dir_path( __DIR__ ) . 'js/hcpc-group-settings.js' ) . '</script>';
 }
 add_action( 'bp_before_create_group_page', 'hcpc_preset_group_settings' );
-add_action( 'groups_screen_group_admin_settings', 'hcpc_preset_group_settings' );
+add_action( 'bp_after_group_settings_admin', 'hcpc_preset_group_settings' );
