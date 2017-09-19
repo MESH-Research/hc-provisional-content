@@ -9,6 +9,7 @@
  */
 function hcpc_filter_bp_blogs_blog_before_save( BP_Blogs_Blog $blog ) {
 	$required_blog_public_option_value = -3; // required value of blog_public option for non-vetted users (assumes MPO)
+	$blog_details = get_blog_details( $blog->blog_id );
 
 	$vetted_user = hcpc_is_user_vetted();
 	$vetted_user = false; // TODO testing only
