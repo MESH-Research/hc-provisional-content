@@ -38,5 +38,6 @@ add_action( 'bp_blogs_blog_before_save', 'hcpc_filter_bp_blogs_blog_before_save'
 function hcpc_preset_blog_settings() {
 	echo '<script>' . file_get_contents( plugin_dir_path( __DIR__ ) . 'js/hcpc-blog-settings.js' ) . '</script>';
 }
-add_action( 'bp_after_create_blog_content', 'hcpc_preset_blog_settings' );
-add_action( 'admin_head-options-reading.php', 'hcpc_preset_blog_settings' );
+add_action( 'bp_after_create_group', 'hcpc_preset_blog_settings' ); // Site creation during group creation.
+add_action( 'bp_after_create_blog_content', 'hcpc_preset_blog_settings' ); // Direct frontend site creation.
+add_action( 'admin_head-options-reading.php', 'hcpc_preset_blog_settings' ); // Admin site creation.
