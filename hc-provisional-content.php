@@ -1,12 +1,19 @@
 <?php
-
 /**
- * Plugin Name: HC Provisional Content
- * Description: Restrict access to content created by new members to help fight spam.
+ * Plugin Name:     HC Provisional Content
+ * Plugin URI:      https://github.com/mlaa/hc-provisional-content
+ * Description:     Constrain visibility of content created by unvetted users to help fight spam.
+ * Author:          MLA
+ * Author URI:      https://github.com/mlaa
+ * Text Domain:     hc-provisional-content
+ * Domain Path:     /languages
+ * Version:         0.1.0
+ *
+ * @package         HC_Provisional_Content
  */
 
 /**
- * is user allowed to create non-provisional content?
+ * Is user allowed to create non-provisional content?
  *
  * @global Humanities_Commons $humanities_commons
  */
