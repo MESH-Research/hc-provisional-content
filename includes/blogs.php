@@ -1,21 +1,30 @@
 <?php
+/**
+ * Blogs component.
+ *
+ * @package HC_Provisional_Content
+ */
 
 /**
- * filter blog options before save to enforce visibility depending on user status
+ * Filter blog options before save to enforce visibility depending on user status.
  *
  * @uses hcpc_is_user_vetted()
- * @param string $status
- * @return string $status
+ * @param BP_Blogs_Blog $blog Blog.
+ * @return BP_Blogs_Blog
  */
 function hcpc_filter_bp_blogs_blog_before_save( BP_Blogs_Blog $blog ) {
-	$required_blog_public_option_value = -3; // required value of blog_public option for non-vetted users (assumes MPO)
+	$required_blog_public_option_value = -3; // Required value of blog_public option for non-vetted users (assumes MPO).
 	$blog_details = get_blog_details( $blog->blog_id );
 
 	$vetted_user = hcpc_is_user_vetted();
-	$vetted_user = false; // TODO testing only
+	$vetted_user = false; // TODO testing only.
 
 	if ( ! $vetted_user && $blog_details->public !== $required_blog_public_option_value ) {
-		update_blog_details( $blog_details->blog_id, [ 'public' => $required_blog_public_option_value ] );
+		update_blog_details(
+			$blog_details->blog_id, [
+				'public' => $required_blog_public_option_value,
+			]
+		);
 	}
 
 	return $blog;
@@ -23,8 +32,8 @@ function hcpc_filter_bp_blogs_blog_before_save( BP_Blogs_Blog $blog ) {
 add_action( 'bp_blogs_blog_before_save', 'hcpc_filter_bp_blogs_blog_before_save' );
 
 /**
- * disable relevant visibility radio buttons and add explanatory notice to label using inline js
- * this only works if hooked to actions before wp_head
+ * Disable relevant visibility radio buttons and add explanatory notice to label using inline js.
+ * This only works if hooked to actions before wp_head.
  */
 function hcpc_preset_blog_settings() {
 	echo '<script>' . file_get_contents( plugin_dir_path( __DIR__ ) . 'js/hcpc-blog-settings.js' ) . '</script>';
