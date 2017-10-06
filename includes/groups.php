@@ -17,7 +17,6 @@
  */
 function hcpc_filter_groups_group_status_before_save( string $status ) {
 	$vetted_user = hcpc_is_user_vetted();
-	$vetted_user = false; // TODO testing only.
 
 	if ( ! $vetted_user ) {
 		$status = 'hidden';

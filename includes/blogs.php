@@ -17,7 +17,6 @@ function hcpc_filter_bp_blogs_blog_before_save( BP_Blogs_Blog $blog ) {
 	$blog_details = get_blog_details( $blog->blog_id );
 
 	$vetted_user = hcpc_is_user_vetted();
-	$vetted_user = false; // TODO testing only.
 
 	if ( ! $vetted_user && $blog_details->public !== $required_blog_public_option_value ) {
 		update_blog_details(

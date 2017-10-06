@@ -13,7 +13,6 @@
  */
 function hcpc_preset_doc_settings( $doc_settings ) {
 	$vetted_user = hcpc_is_user_vetted();
-	$vetted_user = false; // TODO testing only.
 
 	if ( ! $vetted_user ) {
 		$doc_settings['read'] = 'creator';
