@@ -25,6 +25,6 @@ function hcpc_is_user_vetted() {
 require_once( trailingslashit( __DIR__ ) . 'includes/docs.php' );
 require_once( trailingslashit( __DIR__ ) . 'includes/groups.php' );
 
-if ( ! bp_is_root_blog() ) {
+if ( function_exists( 'bp_is_root_blog' ) && ! bp_is_root_blog() ) {
 	require_once( trailingslashit( __DIR__ ) . 'includes/blogs.php' );
 }
